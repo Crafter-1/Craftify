@@ -1,1 +1,0 @@
-This is a music player built for fun, will only support local files on your system.

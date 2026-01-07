@@ -1,13 +1,29 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import javax.sound.sampled.*;
+import java.io.File;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+public class Main {
+
+    public static void main(String[] args) {
+        String filePath = "C:/Users/User/Music/familiar.wav";
+
+        try {
+            File audioFile = new File(filePath);
+
+            AudioInputStream audioStream =
+                    AudioSystem.getAudioInputStream(audioFile);
+
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioStream);
+
+            clip.start();
+
+
+            Thread.sleep(clip.getMicrosecondLength() / 1000);
+
+            clip.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
