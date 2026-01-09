@@ -10,7 +10,7 @@ public class PlayerGUI extends JFrame {
     private final JLabel currentSongLabel = new JLabel("No song loaded");
 
     public PlayerGUI() {
-        setTitle("Java Music Player");
+        setTitle("Craftify");
         setSize(400, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
