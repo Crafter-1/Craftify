@@ -9,11 +9,15 @@ public class PlayerGUI extends JFrame {
     private final AudioPlayer audioPlayer = new AudioPlayer();
     private final JLabel currentSongLabel = new JLabel("No song loaded");
 
+
+
     public PlayerGUI() {
         setTitle("Craftify");
         setSize(400, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+
+        currentSongLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
 
         setLayout(new BorderLayout());
 
@@ -32,9 +36,16 @@ public class PlayerGUI extends JFrame {
     private JPanel createButtonPanel() {
         JPanel panel = new JPanel();
 
+        Font buttonFont;
+        buttonFont = new Font("Comic Sans MS", Font.BOLD, 12);
+
         JButton loadButton = new JButton("Load");
         JButton playButton = new JButton("Play");
         JButton stopButton = new JButton("Stop");
+
+        loadButton.setFont(buttonFont);
+        playButton.setFont(buttonFont);
+        stopButton.setFont(buttonFont);
 
         loadButton.addActionListener(e -> loadMusic());
         playButton.addActionListener(e -> audioPlayer.play());
@@ -56,6 +67,7 @@ public class PlayerGUI extends JFrame {
             try {
                 audioPlayer.load(file);
                 currentSongLabel.setText(file.getName());
+
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(
                         this,
